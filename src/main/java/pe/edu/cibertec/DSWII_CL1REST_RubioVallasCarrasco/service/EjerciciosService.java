@@ -80,4 +80,57 @@ public class EjerciciosService {
                 .build();
 
     }
+
+    // Ejercicio limite
+    public MensajeResponse calcularPotencia(int limite) {
+        String mensaje = "";
+        for (int i = 1; i <= limite; i++) {
+            int cubo = i * i * i;
+            int cuarta = i * i * i * i;
+            mensaje += "Número: " + i + ", Cubo: " + cubo + ", Cuarta: " + cuarta + " | ";
+        };
+
+
+        return MensajeResponse.builder()
+                .resultado(
+                        " " + mensaje
+                )
+                .build();
+
+
+
+
+    }
+
+
+    // ******************Ejercicio venta almacen ************************
+
+    public MensajeResponse calcularMontoPagar(double precioUnit, int cantidad){
+
+        if (precioUnit <= 0 || cantidad < 1) {
+            return MensajeResponse.builder()
+                    .resultado("Cantidad o precio inválidos ")
+                    .build();
+        }
+
+        double montoPagar;
+
+        if (cantidad > 20) {
+            montoPagar = cantidad * precioUnit * 0.90;
+        } else if (cantidad > 10) {
+            montoPagar = cantidad * precioUnit * 0.95;
+        } else {
+            montoPagar = cantidad * precioUnit;
+        }
+
+
+        DecimalFormat df = new DecimalFormat("#.##");
+        double montoPagarDF = Double.parseDouble(df.format(montoPagar));
+
+
+        return MensajeResponse.builder()
+                .resultado("Monto a pagar: " + montoPagarDF)
+                .build();
+    }
+
 }

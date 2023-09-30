@@ -36,5 +36,24 @@ public class EjerciciosController {
 
     }
 
+    @GetMapping("/limite")
+    public ResponseEntity<MensajeResponse> calcularPotencia(@RequestParam int numero){
+
+        return new ResponseEntity<>(
+                ejerciciosService.calcularPotencia(numero), HttpStatus.OK);
+
+    }
+
+    //Ejercicio venta almacen
+    @GetMapping("/almacenventa")
+    public ResponseEntity<MensajeResponse> calcularMontoPagar(
+            @RequestParam double precio,
+            @RequestParam int cantidad){
+
+        return new ResponseEntity<>(
+                ejerciciosService.calcularMontoPagar(precio, cantidad), HttpStatus.OK);
+
+    }
+
 
 }
