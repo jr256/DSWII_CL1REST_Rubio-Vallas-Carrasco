@@ -55,5 +55,15 @@ public class EjerciciosController {
 
     }
 
+    //Ejercicio año bisiesto
+    @GetMapping("/bisiesto")
+    public ResponseEntity<MensajeResponse> anioBisiesto(@RequestParam int anio){
+
+        return new ResponseEntity<>(
+                ejerciciosService.anioBisiesto(anio), HttpStatus.OK);
+
+    }
+
+
 
 }

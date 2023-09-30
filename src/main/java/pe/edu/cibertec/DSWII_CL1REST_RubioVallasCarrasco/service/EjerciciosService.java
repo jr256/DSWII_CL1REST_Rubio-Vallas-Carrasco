@@ -81,25 +81,17 @@ public class EjerciciosService {
 
     }
 
-    // Ejercicio limite
+    // ***********************   Ejercicio limite ***********************
     public MensajeResponse calcularPotencia(int limite) {
         String mensaje = "";
         for (int i = 1; i <= limite; i++) {
             int cubo = i * i * i;
             int cuarta = i * i * i * i;
-            mensaje += "Número: " + i + ", Cubo: " + cubo + ", Cuarta: " + cuarta + " | ";
+            mensaje += "| Número: " + i + ", Cubo: " + cubo + ", Cuarta: " + cuarta + " | ";
         };
 
-
         return MensajeResponse.builder()
-                .resultado(
-                        " " + mensaje
-                )
-                .build();
-
-
-
-
+                .resultado(" " + mensaje).build();
     }
 
 
@@ -131,6 +123,24 @@ public class EjerciciosService {
         return MensajeResponse.builder()
                 .resultado("Monto a pagar: " + montoPagarDF)
                 .build();
+    }
+
+
+    // ******************Ejercicio año bisiesto ************************
+
+    public MensajeResponse anioBisiesto(int anio){
+
+        String respuesta  = "";
+        if ((anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0)) {
+            respuesta = " es año bisiesto";
+        }else{
+            respuesta = " no es año bisiesto";
+        }
+
+        return MensajeResponse.builder()
+                .resultado("El año " +  anio + respuesta)
+                .build();
+
     }
 
 }
