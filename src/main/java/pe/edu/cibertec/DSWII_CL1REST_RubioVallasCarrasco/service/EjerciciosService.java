@@ -65,27 +65,13 @@ public class EjerciciosService {
                     .build();
         }
 
-        String vocal;
-
-        switch (numero) {
-            case 1:
-                vocal = "A";
-                break;
-            case 2:
-                vocal = "E";
-                break;
-            case 3:
-                vocal = "I";
-                break;
-            case 4:
-                vocal = "O";
-                break;
-            case 5:
-                vocal = "U";
-                break;
-            default:
-                vocal = "Número fuera de rango";
-        }
+        String vocal = switch (numero) {
+            case 1 -> "A";
+            case 2 -> "E";
+            case 3 -> "I";
+            case 4 -> "O";
+            default -> "U";
+        };
 
         return MensajeResponse.builder()
                 .resultado(
