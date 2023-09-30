@@ -3,7 +3,6 @@ package pe.edu.cibertec.DSWII_CL1REST_RubioVallasCarrasco.service;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.DSWII_CL1REST_RubioVallasCarrasco.model.MensajeResponse;
 
-import java.nio.DoubleBuffer;
 import java.text.DecimalFormat;
 
 @Service
@@ -53,5 +52,46 @@ public class EjerciciosService {
 
                 )
                 .build();
+    }
+
+
+    // ******************Ejercicio vocales************************
+
+    public MensajeResponse mostrarVocal(int numero){
+
+        if (numero < 1 || numero > 5) {
+            return MensajeResponse.builder()
+                    .resultado("Ingresar números de 1 al 5")
+                    .build();
+        }
+
+        String vocal;
+
+        switch (numero) {
+            case 1:
+                vocal = "A";
+                break;
+            case 2:
+                vocal = "E";
+                break;
+            case 3:
+                vocal = "I";
+                break;
+            case 4:
+                vocal = "O";
+                break;
+            case 5:
+                vocal = "U";
+                break;
+            default:
+                vocal = "Número fuera de rango";
+        }
+
+        return MensajeResponse.builder()
+                .resultado(
+                        "La vocal correspondiente al número " + numero +" es la letra " + vocal
+                )
+                .build();
+
     }
 }

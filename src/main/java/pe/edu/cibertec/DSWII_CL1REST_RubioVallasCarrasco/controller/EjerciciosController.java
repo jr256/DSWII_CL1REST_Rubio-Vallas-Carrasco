@@ -27,5 +27,14 @@ public class EjerciciosController {
 
     }
 
+    //Ejercicio vocales
+    @GetMapping("/vocal")
+    public ResponseEntity<MensajeResponse> mostrarVocal(@RequestParam int numero){
+
+        return new ResponseEntity<>(
+                ejerciciosService.mostrarVocal(numero), HttpStatus.OK);
+
+    }
+
 
 }
